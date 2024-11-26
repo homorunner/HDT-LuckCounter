@@ -102,6 +102,8 @@ namespace HDT_LuckCounter
                     }
                 }
 
+                luckCounterPanel.SetDebugInfo($"win={output.winRate} draw={1-output.winRate-output.lossRate} loss={output.lossRate} my_death={output.myDeathRate} their_death={output.theirDeathRate}");
+
                 double total_percentage_counter = 0.5;
                 for (int i = 1; i < COUNT; i++)
                 {
@@ -122,7 +124,7 @@ namespace HDT_LuckCounter
                             lucky_value[i] += VALUE_BEKILLED;
                         }
                     }
-                    if (Math.Abs(lucky_value[i] - lucky_value[0]) < 1e-6)
+                    if (Math.Abs(lucky_value[i] - lucky_value[0]) < 1e-7)
                     {
                         total_percentage_counter += 0.5;
                     }
